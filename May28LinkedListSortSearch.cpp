@@ -1,5 +1,4 @@
 //home/tovantran/Ctest/May28LinkedListSortSearch.cpp --> 2015-05-29 by ./.tv  owner: tovantran
-
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
@@ -27,10 +26,10 @@ class LinkedList {
 
 public:
   //  friend class Node; // friend of Node
-  LinkedList(int val);
-  ~LinkedList(void);
-  void tailAppend(int val);
-  void headAppend(int val);
+  LinkedList(int);
+  ~LinkedList();
+  void tailAppend(int);
+  void headAppend(int);
   Node *search(int val);
   Node *getTail() const;
   Node *getHead() const;
@@ -97,8 +96,7 @@ void LinkedList::tailAppend(int val) {
   if (pHead == NULL) {
     pTail = pHead = new Node(val);
   } else {
-    Node *temp;
-    temp = pTail;
+    Node *temp = pTail;
     pTail->pNext = new Node(val);
     pTail = pTail->pNext;
     pTail->pPrev = temp;
