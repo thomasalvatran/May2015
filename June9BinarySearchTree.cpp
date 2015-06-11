@@ -72,7 +72,16 @@ bool isBST1(struct node *root) {
 
   return true;
 }
-
+long factorial(long n){
+long f = 0;
+    if (n > 1){
+        f = n*factorial(n-1);
+        printf("f = %u\n", f);
+        
+        return (n * factorial(n-1));
+    }
+//    return 1;
+}
 /* Driver program to test above functions*/
 int main() {
 //  struct node *root = newNode(4);
@@ -102,6 +111,8 @@ int main() {
   for (int i = 0; i < count; i++)
       printf("%c ", arr[i]);
   printf("\n");
+  
+  printf("factorial = %u\n", factorial(4));
   return 0;
 }
 
