@@ -1,5 +1,5 @@
-//home/tovantran/Ctest/May16Sort.cpp --> 2015-05-19 by ./.tv  owner: tovantran
-//selection, insertion, bubble, merge, quick
+// home/tovantran/Ctest/May16Sort.cpp --> 2015-05-19 by ./.tv  owner: tovantran
+// selection, insertion, bubble, merge, quick
 #include <iostream>
 #include <stdlib.h>
 #include <ctime>
@@ -114,6 +114,18 @@ void quickSort(int a[], int l, int r) {
     quickSort(a, m + 1, r);
   }
 }
+
+void shellsort(int v[], int n) {
+  int gap, i, j, temp;
+  for (gap = n / 2; gap > 0; gap /= 2)
+    for (i = gap; i < n; i++)
+      for (j = i - gap; j >= 0 && v[j] > v[j + gap]; j -= gap) {
+        temp = v[j];
+        v[j] = v[j + gap];
+        v[j + gap] = temp;
+      }
+}
+
 int main() {
   //  int a[] = {49, 92, 43, 80};
   int a[10];
@@ -125,7 +137,8 @@ int main() {
   //  insertSort(a, 4);
   //  bubbleSort(a, 4);
   //  mergeSort(a, 0, 3);
-  quickSort(a, 0, 9);
+//  quickSort(a, 0, 9);
+  shellsort(a, 10);
   print(a, 10);
 }
 
