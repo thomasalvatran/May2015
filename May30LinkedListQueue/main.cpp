@@ -152,6 +152,7 @@ void LinkedList::headAppend(int val) {
     temp->pNext = pHead;
     pHead = temp;
     pHead->pNext->pPrev = pHead;
+    pTail->pNext = pHead;             //circular buffer tail->next = head
   }
 }
 
