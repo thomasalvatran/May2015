@@ -9,8 +9,8 @@ class UDPServer
 {
    public static void main(String args[]) throws Exception
       {
-         DatagramSocket serverSocket = new DatagramSocket(9876);
-            byte[] receiveData = new byte[1024];
+         DatagramSocket serverSocket = new DatagramSocket(9877);  //9876 is already used
+            byte[] receiveData = new byte[1024];				  //port listen on foreign address
             byte[] sendData = new byte[1024];
             while(true)
                {
@@ -26,7 +26,8 @@ class UDPServer
                   DatagramPacket sendPacket =
                   new DatagramPacket(sendData, sendData.length, IPAddress, port);
                   serverSocket.send(sendPacket);
-                  System.out.println("IPAddress: " + IPAddress +  " Port: " + port);
+                  System.out.println("IPAddress: " + IPAddress +  " Port: " + port); 
+                  //print out port of local address, many local ports connect to one foreign i.e port 80
                }
       }
 }
