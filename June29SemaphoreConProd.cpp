@@ -1,3 +1,4 @@
+// http://www.bogotobogo.com/cplusplus/multithreading_pthread.php
 //--semaphore with count called counting semaphore
 // sem.c
 
@@ -78,6 +79,7 @@ void *thread_fnc(void *arg)
         }
         pthread_exit(NULL);
 }
+//http://www.bogotobogo.com/cplusplus/multithreading_pthread.php
 //-- with semaphore and mutext and scope reduced to dead lock
 //#include <pthread.h>
 //#include <stdio.h>
@@ -353,4 +355,3 @@ void *thread_fnc(void *arg)
 //    pthread_join(cThread, NULL);
 //    return 0;
 //}
-
