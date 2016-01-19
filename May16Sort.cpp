@@ -1,8 +1,8 @@
 // home/tovantran/Ctest/May16Sort.cpp --> 2015-05-19 by ./.tv  owner: tovantran
-// selection, insertion, bubble, merge, quick
+// selection, insertion, bubble, merge, quick Big C++
 #include <iostream>
-#include <stdlib.h>
-#include <ctime>
+//#include <stdlib.h>
+//#include <ctime>
 using namespace std;
 
 int rand_int(int a, int b) { return (a + rand()) % b; }
@@ -46,7 +46,7 @@ void merge(int a[], int l, int m, int r) {
   for (j = 0; j < n; j++)
     a[l + j] = t[j];
 }
-void mergeSort(int a[], int l, int r) {
+void mergeSort(int a[], int l, int r) { //O(nlogn) worst 
   if (l >= r)
     return;
   int m = (r + l) / 2;
@@ -120,10 +120,29 @@ void shellsort(int v[], int n) {
   for (gap = n / 2; gap > 0; gap /= 2)
     for (i = gap; i < n; i++)
       for (j = i - gap; j >= 0 && v[j] > v[j + gap]; j -= gap) {
-        temp = v[j];
-        v[j] = v[j + gap];
-        v[j + gap] = temp;
+//        temp = v[j];
+//        v[j] = v[j + gap];
+//        v[j + gap] = temp;
+					swap(v, j, j+ gap);
       }
+}
+
+int binsearch(int x, int v[], int n)
+{
+       int low, high, mid;
+
+       low = 0;
+       high = n - 1; //array lenght
+       while (low <= high) {
+           mid = (low+high)/2;
+           if (x < v[mid])
+               high = mid - 1;
+           else if (x  > v[mid])
+               low = mid + 1;
+           else    /* found match */
+               return mid;
+       }
+       return -1;   /* no match */
 }
 
 int main() {
@@ -136,7 +155,7 @@ int main() {
   //  selectSort(a, 4);
   //  insertSort(a, 4);
   //  bubbleSort(a, 4);
-  //  mergeSort(a, 0, 3);
+//    mergeSort(a, 0, 9);
 //  quickSort(a, 0, 9);
   shellsort(a, 10);
   print(a, 10);
